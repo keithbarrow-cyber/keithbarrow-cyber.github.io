@@ -175,4 +175,4 @@ The model is the easy part. Knowing which fields to distrust is the part that co
 
 ---
 
-*Built on a Sentinel triage-generation framework developed by Jacob Hall; the pipeline pattern, delta-scoring design, and evidence-reconstruction rule are his. The registry persistence instantiation, the injection analysis, and the controls described here are mine. All examples are synthetic and sanitized; nothing here reflects a specific customer environment.*
+*Built on a Sentinel triage-generation framework. All examples are synthetic and sanitized; nothing here reflects a specific customer environment.*
