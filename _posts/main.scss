@@ -1,0 +1,98 @@
+---
+# Empty
+---
+
+@charset "utf-8";
+
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$base-font-size:   17px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.65;
+
+$spacing-unit:     30px;
+
+$text-color:       #c5ccd6;
+$background-color: #15181d;
+$brand-color:      #7aa2d6;
+
+$grey-color:       #7d8590;
+$grey-color-light: #2b313a;
+$grey-color-dark:  #a8b1bb;
+
+$table-text-align: left;
+
+$content-width:    780px;
+$on-palm:          600px;
+$on-laptop:        800px;
+
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/syntax-highlighting"
+;
+
+// ---- things minima hardcodes light ----
+
+body { -webkit-font-smoothing: antialiased; }
+
+h1, h2, h3, h4 {
+  color: #e8edf3;
+  font-weight: 600;
+}
+
+.site-header {
+  border-top: none;
+  border-bottom: 1px solid $grey-color-light;
+}
+
+.site-title, .site-title:visited { color: #e8edf3; }
+
+.site-nav .page-link,
+.site-nav .page-link:visited { color: $grey-color-dark; }
+
+.site-footer { border-top: 1px solid $grey-color-light; }
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+pre, code {
+  border: 1px solid $grey-color-light;
+  background-color: #1b1f26;
+  border-radius: 4px;
+}
+
+code { color: #d6bd8a; }
+
+pre {
+  padding: 12px 16px;
+  > code { color: $text-color; border: 0; background: none; }
+}
+
+table {
+  color: $text-color;
+  border-color: $grey-color-light;
+
+  th, td { border-color: $grey-color-light; }
+  th { background-color: #1b1f26; border-bottom-color: $grey-color; }
+  tr:nth-child(even) { background-color: #191d23; }
+}
+
+blockquote {
+  color: $grey-color-dark;
+  border-left-color: $brand-color;
+  font-style: normal;
+}
+
+hr { border: 0; border-top: 1px solid $grey-color-light; }
+
+.highlight {
+  background: #1b1f26;
+
+  .c, .c1, .cm, .cs        { color: #6b7684; font-style: italic; }
+  .k, .kd, .kn, .kp, .kr, .kt { color: #b48ead; }
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #a3be8c; }
+  .m, .mf, .mh, .mi, .mo, .il { color: #d08770; }
+  .o, .ow                  { color: #81a1c1; }
+  .err                     { color: #bf616a; background: none; }
+}
