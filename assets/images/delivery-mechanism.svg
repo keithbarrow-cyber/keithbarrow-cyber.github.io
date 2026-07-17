@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 460" font-family="'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c9a462"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="460" fill="#12151a"/>
+  <text x="40" y="52" fill="#e9eff7" font-size="26" font-weight="700" font-family="'Spectral',Georgia,serif">The attacker never touches your cloud</text>
+
+  <rect x="356" y="120" width="792" height="210" rx="14" fill="none" stroke="#3a4456" stroke-width="1.5" stroke-dasharray="7 6"/>
+  <text x="374" y="146" fill="#707d8f" font-size="13" letter-spacing="0.12em" font-family="'IBM Plex Mono',Consolas,monospace">YOUR CLOUD — INFRASTRUCTURE YOU OWN</text>
+
+  <rect x="28"  y="196" width="118" height="70" rx="8" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <text x="87"  y="238" text-anchor="middle" fill="#e9eff7" font-size="19" font-weight="600">Attacker</text>
+
+  <rect x="176" y="196" width="150" height="70" rx="8" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <text x="251" y="228" text-anchor="middle" fill="#e9eff7" font-size="19" font-weight="600">Endpoint</text>
+  <text x="251" y="250" text-anchor="middle" fill="#707d8f" font-size="13.5" font-family="'IBM Plex Mono',Consolas,monospace">RunOnce value</text>
+
+  <rect x="380" y="196" width="150" height="70" rx="8" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <text x="455" y="228" text-anchor="middle" fill="#e9eff7" font-size="19" font-weight="600">EDR</text>
+  <text x="455" y="250" text-anchor="middle" fill="#707d8f" font-size="13.5" font-family="'IBM Plex Mono',Consolas,monospace">collects it</text>
+
+  <rect x="556" y="196" width="150" height="70" rx="8" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <text x="631" y="228" text-anchor="middle" fill="#e9eff7" font-size="19" font-weight="600">Connector</text>
+  <text x="631" y="250" text-anchor="middle" fill="#707d8f" font-size="13.5" font-family="'IBM Plex Mono',Consolas,monospace">queries it</text>
+
+  <rect x="732" y="196" width="150" height="70" rx="8" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <text x="807" y="228" text-anchor="middle" fill="#e9eff7" font-size="19" font-weight="600">Pipeline</text>
+  <text x="807" y="250" text-anchor="middle" fill="#707d8f" font-size="13.5" font-family="'IBM Plex Mono',Consolas,monospace">pastes it</text>
+
+  <rect x="908" y="196" width="222" height="70" rx="8" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <text x="1019" y="228" text-anchor="middle" fill="#e9eff7" font-size="19" font-weight="600">The prompt</text>
+  <text x="1019" y="250" text-anchor="middle" fill="#707d8f" font-size="13.5" font-family="'IBM Plex Mono',Consolas,monospace">model reads the row</text>
+
+  <line x1="146" y1="231" x2="172" y2="231" stroke="#c9a462" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="326" y1="231" x2="376" y2="231" stroke="#c9a462" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="530" y1="231" x2="552" y2="231" stroke="#c9a462" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="706" y1="231" x2="728" y2="231" stroke="#c9a462" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="882" y1="231" x2="904" y2="231" stroke="#c9a462" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="152" y="184" fill="#c9a462" font-size="13" font-family="'IBM Plex Mono',Consolas,monospace">writes a registry key</text>
+
+  <text x="40" y="392" fill="#707d8f" font-size="15">One action, on one endpoint. Every step after it is infrastructure you own and paid for.</text>
+  <text x="40" y="418" fill="#c9a462" font-size="15">You built the delivery mechanism. They supply the payload.</text>
+</svg>
