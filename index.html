@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+{% for post in site.posts %}
+<article class="entry">
+  <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+  <h2 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+  <p class="entry-dek">{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
+</article>
+{% endfor %}
+
+<p class="index-note"><a href="{{ '/feed.xml' | relative_url }}">rss</a></p>
