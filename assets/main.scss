@@ -26,6 +26,17 @@ $content-width:    780px;
 $on-palm:          600px;
 $on-laptop:        800px;
 
+// Minima 2.5.1 defines these in the gem's main.scss, which this file replaces.
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
 @import
   "minima/base",
   "minima/layout",
