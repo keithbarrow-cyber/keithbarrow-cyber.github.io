@@ -1,17 +1,5 @@
-title: Keith's Security Notes
-description: >-
-  Detection engineering, cloud security, and AI-assisted SOC work.
-  Field notes from building the thing, not demos.
-author: Keith
+title: Keith Barrow
+description: Cyber operations, detection engineering, AI security
 theme: minima
-show_excerpts: true
-permalink: /:title/
-
-header_pages:
-  - about.md
-
-# Uncomment and fill these once your accounts exist:
-# minima:
-#   social_links:
-#     - { platform: linkedin, user_url: "https://www.linkedin.com/in/YOUR-HANDLE" }
-#     - { platform: github, user_url: "https://github.com/YOUR-USERNAME" }
+plugins:
+  - jekyll-feed
