@@ -1,0 +1,240 @@
+---
+# Empty frontmatter required.
+---
+
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+// ---------- tokens ----------
+$ground:  #12151a;
+$raised:  #1a1f28;
+$rule:    #272e39;
+$ink:     #c3cbd8;
+$bright:  #e9eff7;
+$muted:   #707d8f;
+$brass:   #c9a462;
+$link:    #90b6dd;
+
+$serif: "Spectral", Georgia, serif;
+$sans:  "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+$mono:  "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+// ---------- minima 2.5.1 requires these ----------
+$base-font-family: $sans;
+$base-font-size:   17px;
+$base-font-weight: 400;
+$small-font-size:  14px;
+$base-line-height: 1.72;
+$spacing-unit:     32px;
+$text-color:       $ink;
+$background-color: $ground;
+$brand-color:      $link;
+$grey-color:       $muted;
+$grey-color-light: $rule;
+$grey-color-dark:  #9aa5b4;
+$table-text-align: left;
+$content-width:    760px;
+$on-palm:          600px;
+$on-laptop:        800px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) { @content; }
+}
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+@import "minima/base", "minima/layout", "minima/syntax-highlighting";
+
+// ---------- overrides ----------
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: $sans;
+}
+
+// header: the site name is a field label, not a nameplate
+.site-header {
+  border-top: none;
+  border-bottom: 1px solid $rule;
+  min-height: 0;
+  padding: 18px 0;
+}
+
+.site-title, .site-title:visited, .site-title:hover {
+  font-family: $mono;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: $brass;
+  text-transform: lowercase;
+  line-height: 1;
+
+  &::before { content: "// "; color: $muted; }
+}
+
+.site-nav {
+  line-height: 1;
+  .page-link, .page-link:visited {
+    font-family: $mono;
+    font-size: 13px;
+    color: $muted;
+    &:hover { color: $ink; text-decoration: none; }
+  }
+}
+
+// headings: human writing
+h1, h2, h3, h4 {
+  font-family: $serif;
+  color: $bright;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+h1 { font-size: 40px; }
+h2 { font-size: 27px; margin-top: 48px; }
+h3 { font-size: 21px; margin-top: 34px; }
+
+.post-title, .post-list h2 {
+  font-family: $serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+// metadata: machine fields
+.post-meta {
+  font-family: $mono;
+  font-size: 13px;
+  color: $muted;
+  letter-spacing: 0.02em;
+}
+
+a { color: $link; text-decoration: none; }
+a:hover { color: $bright; text-decoration: underline; text-underline-offset: 3px; }
+
+// the fix: two-class specificity to beat minima
+.highlighter-rouge .highlight,
+div.highlighter-rouge .highlight,
+pre, code {
+  background-color: $raised;
+  border: 1px solid $rule;
+  border-radius: 3px;
+}
+
+code {
+  font-family: $mono;
+  font-size: 0.88em;
+  color: $brass;
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 14px 16px;
+  line-height: 1.55;
+  > code { color: $ink; border: 0; background: none; padding: 0; }
+}
+
+.highlighter-rouge .highlight { border: 0; }
+
+table {
+  font-size: 15px;
+  color: $ink;
+  border-color: $rule;
+  th, td { border-color: $rule; }
+  th {
+    font-family: $mono;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: $brass;
+    background-color: $raised;
+    font-weight: 500;
+  }
+  tr:nth-child(even) { background-color: #161a21; }
+  tr:hover { background-color: #1c222b; }
+}
+
+blockquote {
+  color: $bright;
+  font-family: $serif;
+  font-size: 20px;
+  font-style: italic;
+  border-left: 2px solid $brass;
+  letter-spacing: 0;
+}
+
+hr { border: 0; border-top: 1px solid $rule; margin: 44px 0; }
+
+strong { color: $bright; font-weight: 600; }
+
+.site-footer {
+  border-top: 1px solid $rule;
+  padding: 28px 0;
+  font-family: $mono;
+  font-size: 12px;
+  color: $muted;
+}
+.footer-heading, .footer-col-wrapper { display: none; }
+
+// syntax
+.highlight {
+  .c, .c1, .cm, .cs           { color: #5d6878; font-style: italic; }
+  .k, .kd, .kn, .kp, .kr, .kt { color: #b48ead; }
+  .s, .s1, .s2, .sb, .sd, .se, .sh, .si, .sx { color: #9cb98a; }
+  .m, .mf, .mh, .mi, .mo, .il { color: #d08770; }
+  .o, .ow                     { color: #7fa2c4; }
+  .err                        { color: #bf616a; background: none; }
+}
+
+// ---------- index ----------
+.entry {
+  padding: 26px 0;
+  border-bottom: 1px solid $rule;
+
+  &:first-of-type { padding-top: 6px; }
+
+  .entry-date {
+    font-family: $mono;
+    font-size: 12px;
+    color: $muted;
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .entry-title {
+    font-family: $serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+
+    a { color: $bright; }
+    a:hover { color: $brass; text-decoration: none; }
+  }
+
+  .entry-dek {
+    color: $muted;
+    font-size: 16px;
+    margin: 0;
+    max-width: 62ch;
+  }
+}
+
+.index-note {
+  font-family: $mono;
+  font-size: 12px;
+  color: $muted;
+  margin-top: 40px;
+  a { color: $muted; }
+  a:hover { color: $brass; }
+}
+
+@include media-query($on-palm) {
+  h1, .entry .entry-title { font-size: 28px; }
+  .post-title { font-size: 30px; }
+}
