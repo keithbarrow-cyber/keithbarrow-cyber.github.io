@@ -2,12 +2,30 @@
 layout: default
 ---
 
-{% for post in site.posts %}
-<article class="entry">
-  <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-  <h2 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-  <p class="entry-dek">{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
-</article>
-{% endfor %}
+<header class="landing-hero">
+  <p class="landing-label">// field notes</p>
+  <h1 class="landing-headline">Cyber operations,<br>detection engineering,<br>AI security.</h1>
+  <p class="landing-bio">
+    I'm Keith Barrow — I build detection pipelines and write about putting language models
+    into security operations. This blog is what I learned by building things, including the
+    parts that didn't work and the parts that scared me once they did.
+  </p>
+  <nav class="landing-links">
+    <a href="{{ '/about/' | relative_url }}">about</a>
+    <span class="landing-sep">·</span>
+    <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+    <span class="landing-sep">·</span>
+    <a href="https://www.linkedin.com/in/keith-barrow" rel="noopener">linkedin</a>
+  </nav>
+</header>
 
-<p class="index-note"><a href="{{ '/feed.xml' | relative_url }}">rss</a></p>
+<section class="landing-posts">
+  <h2 class="landing-section-label">// posts</h2>
+  {% for post in site.posts %}
+  <article class="entry">
+    <time class="entry-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+    <h2 class="entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <p class="entry-dek">{{ post.excerpt | strip_html | strip_newlines | truncate: 180 }}</p>
+  </article>
+  {% endfor %}
+</section>

@@ -189,6 +189,71 @@ strong { color: $bright; font-weight: 600; }
   .err                        { color: #bf616a; background: none; }
 }
 
+// ---------- landing ----------
+
+.landing-hero {
+  padding: 72px 0 56px;
+  border-bottom: 1px solid $rule;
+  margin-bottom: 0;
+}
+
+.landing-label {
+  font-family: $mono;
+  font-size: 13px;
+  color: $muted;
+  letter-spacing: 0.06em;
+  margin: 0 0 20px;
+}
+
+.landing-headline {
+  font-family: $serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: $bright;
+  margin: 0 0 24px;
+}
+
+.landing-bio {
+  font-size: 17px;
+  color: $ink;
+  max-width: 58ch;
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+
+.landing-links {
+  font-family: $mono;
+  font-size: 13px;
+
+  a { color: $muted; }
+  a:hover { color: $brass; text-decoration: none; }
+
+  .landing-sep {
+    color: $rule;
+    margin: 0 10px;
+  }
+}
+
+.landing-section-label {
+  font-family: $mono;
+  font-size: 12px;
+  font-weight: 500;
+  color: $muted;
+  letter-spacing: 0.06em;
+  margin: 40px 0 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $rule;
+}
+
+.landing-posts { margin-top: 0; }
+
+@include media-query($on-palm) {
+  .landing-headline { font-size: 32px; }
+  .landing-hero { padding: 48px 0 40px; }
+}
+
 // ---------- index ----------
 .entry {
   padding: 26px 0;
