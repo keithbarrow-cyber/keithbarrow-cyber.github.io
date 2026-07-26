@@ -166,6 +166,28 @@ blockquote {
   letter-spacing: 0;
 }
 
+// images: force block, so a narrow image never has caption text flowing beside it
+.post-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 32px auto 12px;
+  border: 1px solid $rule;
+  border-radius: 3px;
+}
+
+// the italic line immediately following an image is its caption
+.post-content img + em {
+  display: block;
+  max-width: 92%;
+  margin: 0 auto 36px;
+  color: $muted;
+  font-family: $sans;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
 hr { border: 0; border-top: 1px solid $rule; margin: 44px 0; }
 
 strong { color: $bright; font-weight: 600; }
