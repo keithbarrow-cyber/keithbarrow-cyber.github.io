@@ -54,6 +54,9 @@ I deliberately pointed it at a domain with no procedure to watch this work, and 
 
 That is the difference between a label and a decision. A label is what the model emitted. A decision is a label plus the reviewable standard that produced it, plus the ability to reconstruct both later.
 
+![Side by side comparison. On the left, a label: the verdict Benign with nothing else retained, and the six-month question answered only by "the model said so." On the right, a decision: the same verdict plus the governing procedure version mapped to ATT&CK, evidence reconstructed from the source row, and the run recorded, so the six-month question resolves to a specific procedure version and its diff.](/assets/images/label-vs-decision.svg)
+*Both sides are the same verdict. Only one of them can answer for itself later.*
+
 One related design choice, and it's a position not everyone will share. In the analyst view the procedure renders **above** the model's analysis, and the model's output is labeled decision support. The analyst reads the approved standard first and the machine's opinion second.
 
 ![Analyst view showing the regulated SOP for registry persistence, with MITRE mapping, version, numbered analysis steps, escalation criteria and known false positives, followed below by the AI investigation report labeled decision support, opening on a Critical verdict](/assets/images/procedure-above-analysis.png)

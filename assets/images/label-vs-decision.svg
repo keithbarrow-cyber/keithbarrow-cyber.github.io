@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 560" font-family="'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif">
+  <rect width="1180" height="560" fill="#12151a"/>
+  <text x="40" y="52" fill="#e9eff7" font-size="26" font-weight="700" font-family="'Spectral',Georgia,serif">A label is not a decision</text>
+  <text x="40" y="78" fill="#707d8f" font-size="14">Same verdict. Only one of them survives the question asked six months later.</text>
+
+  <!-- LEFT: a label -->
+  <rect x="40" y="106" width="530" height="376" rx="10" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <rect x="40" y="106" width="6" height="376" rx="3" fill="#3a4250"/>
+  <text x="76" y="142" fill="#707d8f" font-size="12" letter-spacing="0.14em" font-family="'IBM Plex Mono',Consolas,monospace">A LABEL</text>
+  <text x="76" y="196" fill="#e9eff7" font-size="40" font-weight="700" font-family="'Spectral',Georgia,serif">Benign</text>
+  <line x1="76" y1="224" x2="534" y2="224" stroke="#272e39" stroke-width="1"/>
+  <text x="76" y="254" fill="#c3cbd8" font-size="15">What the model emitted. Nothing else was kept.</text>
+
+  <text x="76" y="308" fill="#8a6f52" font-size="12" letter-spacing="0.1em" font-family="'IBM Plex Mono',Consolas,monospace">SIX MONTHS LATER, WHY?</text>
+  <rect x="76" y="326" width="458" height="52" rx="6" fill="#12151a" stroke="#272e39" stroke-width="1"/>
+  <text x="96" y="358" fill="#707d8f" font-size="15" font-style="italic">"The model said so."</text>
+
+  <text x="76" y="418" fill="#c3cbd8" font-size="15">No standard to point at. No version to diff.</text>
+  <text x="76" y="442" fill="#c3cbd8" font-size="15">No way to tell whether it was right by design</text>
+  <text x="76" y="466" fill="#c3cbd8" font-size="15">or right by luck.</text>
+
+  <!-- RIGHT: a decision -->
+  <rect x="610" y="106" width="530" height="376" rx="10" fill="#1a1f28" stroke="#272e39" stroke-width="1.5"/>
+  <rect x="610" y="106" width="6" height="376" rx="3" fill="#c9a462"/>
+  <text x="646" y="142" fill="#c9a462" font-size="12" letter-spacing="0.14em" font-family="'IBM Plex Mono',Consolas,monospace">A DECISION</text>
+  <text x="646" y="196" fill="#e9eff7" font-size="40" font-weight="700" font-family="'Spectral',Georgia,serif">Benign</text>
+  <line x1="646" y1="224" x2="1104" y2="224" stroke="#272e39" stroke-width="1"/>
+
+  <text x="646" y="252" fill="#8a6f52" font-size="12" letter-spacing="0.1em" font-family="'IBM Plex Mono',Consolas,monospace">GOVERNED BY</text>
+  <text x="646" y="274" fill="#c3cbd8" font-size="15">Procedure v1.0, mapped to T1547.001, reviewed and owned</text>
+
+  <text x="646" y="306" fill="#8a6f52" font-size="12" letter-spacing="0.1em" font-family="'IBM Plex Mono',Consolas,monospace">EVIDENCE</text>
+  <text x="646" y="328" fill="#c3cbd8" font-size="15">Reconstructed from the source row, never from the model</text>
+
+  <text x="646" y="360" fill="#8a6f52" font-size="12" letter-spacing="0.1em" font-family="'IBM Plex Mono',Consolas,monospace">RECORDED</text>
+  <text x="646" y="382" fill="#c3cbd8" font-size="15">Run id, timing, and the procedure version in force</text>
+
+  <text x="646" y="418" fill="#8a6f52" font-size="12" letter-spacing="0.1em" font-family="'IBM Plex Mono',Consolas,monospace">SIX MONTHS LATER, WHY?</text>
+  <rect x="646" y="436" width="458" height="30" rx="6" fill="#12151a" stroke="#3a4250" stroke-width="1"/>
+  <text x="666" y="456" fill="#c3cbd8" font-size="14" font-family="'IBM Plex Mono',Consolas,monospace">v1.0, these steps, and the diff to v1.1</text>
+
+  <!-- footer -->
+  <line x1="40" y1="510" x2="1140" y2="510" stroke="#272e39" stroke-width="1"/>
+  <text x="40" y="538" fill="#707d8f" font-size="14">A verdict you cannot trace back to a standard is an opinion your pipeline produced at machine speed.</text>
+</svg>
