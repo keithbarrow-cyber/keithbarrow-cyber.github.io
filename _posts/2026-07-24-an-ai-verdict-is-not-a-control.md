@@ -167,4 +167,8 @@ Last post ended with "the model is the easy part." This one is the receipt. The 
 
 ---
 
-*Written from my own lab work during a security fellowship, shared with a colleague's approval. Views are my own and do not represent my employer. All examples are synthetic or sanitized, built on publicly available Azure services, and nothing here reflects a customer environment or any organization's internal systems.*
+*Keith Barrow builds detection pipelines and writes about AI in security operations.<br>
+Cloud Solution Architect Fellow at Microsoft Federal. OSCP+, GREM, GCFA, GCIH, SC-100.<br>
+[LinkedIn](https://www.linkedin.com/in/keith-barrow) · Views are my own.*
+
+*All examples are synthetic and sanitized. Nothing here reflects a specific customer environment or any organization's internal systems.*
