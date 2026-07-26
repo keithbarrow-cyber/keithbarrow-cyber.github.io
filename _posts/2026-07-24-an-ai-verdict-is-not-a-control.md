@@ -67,7 +67,7 @@ Once the standard was a document instead of a prompt, the pipeline stopped carin
 
 So I drafted a starter corpus across the territory a real SOC works: registry and scheduled-task persistence, service installation, WMI subscriptions, LOLBin execution, encoded scripting, credential access, token abuse, sign-in anomalies, password spray, MFA fatigue, risky OAuth consent, inbox rule abuse, beaconing, DNS tunneling, cloud exfiltration, lateral movement, Kerberoasting, privileged group changes, and endpoint alert follow-up.
 
-Drafts, emphatically. A procedure that drives real verdicts needs review by whoever owns that detection, and that review is the gate between a lab corpus and an approved one. I have run the full pipeline end to end on one domain. The rest are indexed and waiting on the detection queries to go with them.
+Drafted, not approved. A procedure that drives real verdicts needs review by whoever owns that detection, and that review is the gate between a lab corpus and a standard. I've run the full pipeline end to end on one domain. The rest are indexed and waiting on the detection queries to go with them.
 
 Each domain is another instance of the same pipeline, and they all write to shared stores stamped with their domain, so one dashboard is a fleet view with a filter to narrow it.
 
