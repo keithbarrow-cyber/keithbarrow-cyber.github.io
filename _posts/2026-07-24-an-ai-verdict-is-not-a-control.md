@@ -123,11 +123,15 @@ So the whole stack became infrastructure-as-code. Every environment-specific val
 
 Two steps stay manual because the platform requires interactive consent, and pretending otherwise would just mean an undocumented failure later. Standing up another domain is the same command with a different domain name.
 
-Here's the part I didn't expect. **A deployment that reprovisions cleanly is a fragility detector.**
+Here's the part I didn't expect. **Writing the deployment is what exposed how fragile the hand-built version had been.**
 
-Forcing every value to be a parameter surfaced three things I did not know were true of my own system. A query lookback window that was quietly hardcoded, so a redeploy silently reverted a change I'd made in the console and I spent twenty minutes blaming the model for scoring nothing. A store that got overwritten rather than preserved on every redeploy, quietly destroying accumulated history. And a value I had hand-edited in a portal weeks earlier and completely forgotten, which existed nowhere in any file.
+The prototype worked, but only because I had been quietly patching it by hand. Forcing every value into a parameter surfaced three things I didn't know were true of my own system.
 
-None of those would have surfaced by reading the code. They surfaced because rebuilding from scratch is the only honest test of whether you know what your system is made of. Infrastructure-as-code doesn't just distribute a system. It *finds the parts of it you were wrong about.*
+A query lookback window that was hardcoded, so redeploying silently reverted a change I'd made in the console. I spent twenty minutes blaming the model for scoring nothing before I found it. A watchlist that was being recreated rather than preserved on redeploy, which would have wiped accumulated run history every single time, caught before it cost me anything real. And a value I had hand-edited in the portal weeks earlier and completely forgotten, which existed in no file anywhere.
+
+Every one of those is fixed, and fixed structurally rather than patched: the lookback is a parameter, stores are created only if absent, and there is no configuration left that lives solely in a console. The deployment is deterministic now, which is the entire point. Run it in a fresh tenant and you get the same system, and run it again over an existing one and it updates in place without touching your data.
+
+That's the argument for doing this even when you have no intention of sharing the thing. Rebuilding from scratch is the only honest test of whether you know what your system is made of. Infrastructure-as-code doesn't just distribute a system. It *finds the parts of it you were wrong about*, while they're still cheap to fix.
 
 ## What a run actually looks like
 
