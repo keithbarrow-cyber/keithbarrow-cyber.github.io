@@ -166,6 +166,24 @@ I got to test that. Among the minority of alerts that did carry an analyst class
 
 That is the whole argument for keeping the standard outside the model, and it took two posts to get evidence for it.
 
+## What the whole thing cost
+
+I want to put a number on this because the objection I keep hearing about controls is that they are expensive.
+
+Everything described in this post and the last one, running for a month, cost **$1.84**.
+
+Not the model. Everything. Six workflows, the storage and query layer, the key store, the console, the ingestion for every record, every fixture run, every backtest, every re-judge, and every mistake I made along the way.
+
+The model was $1.34 of that, across 840 assessments. **About a sixth of a cent per alert.** The other fifty cents is the entire rest of the architecture, which is to say the grounding check, the versioned procedures, the fixtures, the reviewer loop and the counters that caught the silent record loss all cost roughly nothing.
+
+Two caveats, because a number nobody can reconstruct is exactly what I spent a section arguing against.
+
+**That per-alert figure includes all the waste.** It is total spend divided by total assessments, and a large share of those assessments were me re-running things because something was broken. Steady-state marginal cost is lower than a sixth of a cent, not higher. I am quoting the pessimistic number because it is the one I can point at a bill for.
+
+**It is pinned to this configuration.** A small model, a reasoning effort setting I have not changed, roughly 1,650 tokens in and 330 out per assessment because the payload is a bounded field list rather than a raw alert. Loosen any of those and the number moves. The architecture is what makes the payload small, so the cost and the privacy posture come from the same decision.
+
+I am not going to extrapolate this to some enterprise volume, because I have not tested the throughput limits and a projected number would undo the point of a measured one. But at this scale the honest conclusion is that **nobody skips these controls because they are expensive. They skip them because they are work.**
+
 ## What actually changed my mind
 
 I went into this expecting to catch a model inventing things. I built a fairly elaborate apparatus for exactly that.
