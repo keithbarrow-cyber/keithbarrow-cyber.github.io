@@ -13,7 +13,7 @@ Ask anyone what goes wrong when you put a language model in front of security al
 
 That is a real risk. It is not the one that bit me.
 
-[Last post]({% post_url 2026-07-24-an-ai-verdict-is-not-a-control %}) I moved the analysis standard out of the prompt and into versioned, owned documents, so a verdict could be traced back to the exact text that produced it. That closed the question of *which rule applied*. It left a different question wide open, and a sceptical engineer finds it in about ten seconds:
+[Last post]({% post_url 2026-07-24-an-ai-verdict-is-not-a-control %}) I moved the analysis standard out of the prompt and into versioned, owned documents, so a verdict could be traced back to the exact text that produced it. That closed the question of *which rule applied*. It left a different question wide open, and a skeptical engineer finds it in about ten seconds:
 
 **How do you know the model actually read the record?**
 
@@ -54,6 +54,14 @@ Three details in it are deliberate, and each exists because the obvious version 
 
 And when a claim fails, the verdict is not discarded and it is not accepted. The model's exact words are kept, the specific claims that did not match are recorded, and the working verdict is forced to *Requires investigation* so a person sees it.
 
+Here is what a rejection actually looks like, recorded against the verdict it stopped:
+
+```json
+[{ "claim": "No external recipients were recorded for this event.",
+   "field": "AnyExternalRecipient",
+   "value": "null" }]
+```
+
 **Coercing toward review rather than toward closure is the entire design.** The failure mode of a broken model must never be silent approval.
 
 ![Triage console. A list of incidents on the left, each led by a pseudonymous actor and the procedure that judged it. On the right, an open verdict of Violation confirmed with its written reasoning, the recommended next step, and a provenance block reading procedure sop-irm-departures v0.1 and fields cited 6, every one matched the record. Below that, buttons to agree or record a different verdict.](/assets/images/verified-verdict.png)
@@ -61,7 +69,7 @@ And when a claim fails, the verdict is not discarded and it is not accepted. The
 
 ## Nine flags, zero lies
 
-I ran it across roughly 150 real alerts. It fired nine times, across five distinct causes.
+I ran it across roughly 150 alerts exported from a working tenant. It fired nine times, across five distinct causes.
 
 Zero of them were fabrications.
 
@@ -83,6 +91,8 @@ That is the one I think about most. I built an instrument to catch a model lying
 
 All of them are now fixed, and the fix to the nesting one was itself informative. The model had been reaching for a count of how many sensitive items were involved, because that is genuinely the thing that separates one credit card number from six hundred. It could not cite it, so it invented a path to it. **The check told me what evidence the procedure actually needed.** That was not what I built it for and it might be the most useful thing it does.
 
+Worth saying what the check costs, since a post about showing numbers should show that one. Requiring claims lands at roughly 1,650 input and 330 output tokens per assessment, and the claims are a small slice of that output. Verification is close to free. The expensive part is the record and the procedure, which you were sending anyway.
+
 ## The one that actually scared me
 
 Two days in, a run reported that it had found ten alerts and produced nine verdicts.
@@ -93,7 +103,7 @@ The cause was a schema I had written on the model's response, declaring that eve
 
 **A control I added for tidiness deleted the thing it was inspecting.**
 
-Sit with that for a second, because it is the worst behaviour anything in this system can have. Every other failure path fails closed: off-vocabulary verdicts, ungrounded claims, refused runs, throttled model calls. All of them write down what happened and route to a human. That one failed silent, and it failed silent inside a system whose entire pitch is that decisions are recorded.
+Sit with that for a second, because it is the worst behavior anything in this system can have. Every other failure path fails closed: off-vocabulary verdicts, ungrounded claims, refused runs, throttled model calls. All of them write down what happened and route to a human. That one failed silent, and it failed silent inside a system whose entire pitch is that decisions are recorded.
 
 The types are gone now rather than corrected, for two reasons. The model call already requests JSON output, so the response is guaranteed parseable and a schema could only ever add ways to fail. And real validation happens twice downstream anyway, in the vocabulary check and the grounding check, both of which fail closed.
 
@@ -150,7 +160,7 @@ That second one costs nothing to implement and it is the difference between a me
 
 The argument for versioned procedures was always partly a promise: put the standard in a document, stamp the version onto the verdict, and you will be able to prove that changing the document changed the outcome.
 
-I got to test that. Real alerts kept coming back benign that a reviewer had called malicious, and the reason was a sentence I had written telling the model not to let one particular signal affect the verdict. The model had been following it correctly. So I changed the sentence, bumped the version, and redeployed.
+I got to test that. Among the minority of alerts that did carry an analyst classification, several kept coming back benign that a reviewer had called malicious. The reason was a sentence I had written telling the model not to let one particular signal affect the verdict. The model had been following it correctly. So I changed the sentence, bumped the version, and redeployed.
 
 **Fifteen verdicts moved.** Each one traceable to a specific procedure version, with the old answer still on file and the new one beside it. Nobody retrained anything and nobody touched a prompt. A person edited a document and the outcomes changed, provably.
 
@@ -162,13 +172,13 @@ I went into this expecting to catch a model inventing things. I built a fairly e
 
 In two days it produced no fabrications and nine flags, and **every one of the nine was in something I had built to watch, validate, or manage the model.** One of them was in the watching apparatus itself. Not one was in the judgement.
 
-That pattern held everywhere once I started looking. The test harness produced four false failures before it produced a true one: it counted across runs instead of within one, conflated a query problem with a model problem, throttled itself by firing everything at once, and read ingestion lag as a missing verdict. A control that disabled a procedure had no way to re-enable it. A gate that required tests to pass stored its state in a file that got deleted constantly, so it fired on procedures that had passed an hour earlier.
+That pattern held everywhere once I started looking. The test harness produced four false failures before it produced a true one. A control that disabled a procedure had no way to re-enable it. A gate that required tests to pass stored its state in a file that got deleted constantly, so it fired on procedures that had passed an hour earlier.
 
 Every one of those produced a **false alarm**, which is the more dangerous direction. A control that cries wolf gets bypassed, and then it is not a control, and everyone still thinks it is.
 
 Meanwhile the model, given a clear procedure, a bounded field list, and a closed set of permitted answers, behaved.
 
-I do not think that generalises to every use of a language model, and I would not want anyone to read it as "the models are fine now". The setup matters enormously: it never sees free text it does not need, it cannot answer outside four values, and every claim it makes is checked. Constrain the problem hard enough and you get a well-behaved component.
+I do not think that generalizes to every use of a language model, and I would not want anyone to read it as "the models are fine now". The setup matters enormously: it never sees free text it does not need, it cannot answer outside four values, and every claim it makes is checked. Constrain the problem hard enough and you get a well-behaved component.
 
 But it does suggest the risk sits somewhere other than where most of the attention is. **The model is one component in a system, and the rest of the system is code somebody wrote in a hurry, under-tested, and trusted more than the model because it isn't AI.**
 
@@ -184,7 +194,7 @@ Three things I would now argue for in any system that lets a model make a call a
 
 And one more, less comfortable than the others.
 
-**Trust your scaffolding less than you trust your model.** The model gets scrutinised because it is new and strange. The hundred lines of query, validation, retry and packaging around it get scrutinised only once they break, which is considerably later than you would like.
+**Trust your scaffolding less than you trust your model.** The model gets scrutinized because it is new and strange. The hundred lines of query, validation, retry and packaging around it get scrutinized only once they break, which is considerably later than you would like.
 
 The verifier I built to catch a model lying spent its first two days catching me. I would rather have found that out this way than in a room with somebody asking why an alert about their employee got closed.
 
@@ -196,7 +206,7 @@ Three things I have not solved, in case anyone wants to tell me I am wrong about
 
 **The tier that judges people has no regression test.** Every procedure that judges a single alert is gated by fixtures with known answers. The one that builds a picture of a person across surfaces, which is the one making the strongest claim, is the one nothing verifies. I know exactly how that sentence sounds.
 
-**Withheld fields are never scanned for manipulation.** The injection pre-check reads what the model reads. A procedure can name a field as attacker-writable and still keep it out of the prompt, and instruction text planted there is never recorded. The model is not at risk from text it never receives, so this is a gap in detection rather than in defence, but somebody trying to manipulate triage is worth knowing about even when the attempt was going to fail.
+**Withheld fields are never scanned for manipulation.** The injection pre-check reads what the model reads. A procedure can name a field as attacker-writable and still keep it out of the prompt, and instruction text planted there is never recorded. The model is not at risk from text it never receives, so this is a gap in detection rather than in defense, but somebody trying to manipulate triage is worth knowing about even when the attempt was going to fail.
 
 ---
 
