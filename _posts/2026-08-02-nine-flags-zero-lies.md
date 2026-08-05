@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Make the Model Show Its Work"
+title: "Nine Flags, Zero Lies"
 date: 2026-08-02
 categories: security ai-soc governance
 ---
