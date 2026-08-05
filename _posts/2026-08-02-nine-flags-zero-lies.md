@@ -140,11 +140,11 @@ My first instinct was that somebody had been sloppy. That instinct was wrong, an
 
 Which means an accuracy figure is unavailable, not merely inconvenient. There is no answer key, and building one is not a data engineering problem.
 
-I ran the pipeline against what labels did exist, purely to see. It "disagreed" with the recorded outcome on most of them. That number is meaningless and I am not going to repeat it, because it is measuring against a field that does not encode the judgement anybody cares about. **A precision figure computed from the wrong column is worse than no figure, because it survives being quoted.**
+I ran the pipeline against what labels did exist, purely to see. It "disagreed" with the recorded outcome on most of them. That number is meaningless and I am not going to repeat it, because it is measuring against a field that does not encode the judgment anybody cares about. **A precision figure computed from the wrong column is worse than no figure, because it survives being quoted.**
 
 ## Then you have to build the answer key
 
-If the record of human judgement does not exist, the system has to create it as a by-product of being used.
+If the record of human judgment does not exist, the system has to create it as a by-product of being used.
 
 Every verdict in the console now carries two buttons. Agree, or record a different verdict with a note. The response is written back against the incident and the exact procedure version that produced it, attributed to the signed-in reviewer, and it accumulates. Nobody is asked to do extra work. They are asked to press a key while reading something they were already reading.
 
@@ -170,7 +170,7 @@ That is the whole argument for keeping the standard outside the model, and it to
 
 I went into this expecting to catch a model inventing things. I built a fairly elaborate apparatus for exactly that.
 
-In two days it produced no fabrications and nine flags, and **every one of the nine was in something I had built to watch, validate, or manage the model.** One of them was in the watching apparatus itself. Not one was in the judgement.
+In two days it produced no fabrications and nine flags, and **every one of the nine was in something I had built to watch, validate, or manage the model.** One of them was in the watching apparatus itself. Not one was in the judgment.
 
 That pattern held everywhere once I started looking. The test harness produced four false failures before it produced a true one. A control that disabled a procedure had no way to re-enable it. A gate that required tests to pass stored its state in a file that got deleted constantly, so it fired on procedures that had passed an hour earlier.
 
