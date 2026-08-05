@@ -144,7 +144,7 @@ The spread tracked what a careful human would conclude. Browser and runtime inst
 
 That one escalated on its own, and by the time I looked at it the enrichment had already run and the report was written.
 
-Seven in, seven scored, one escalation, one injection detection, 100% analysis rate. Which is the entire point of the previous section. Not a feeling that it worked. A number, attached to a procedure version, that I can compare against next week.
+Seven in, seven scored, one escalation, one injection detection. Nothing found and left unjudged. Which is the entire point of the previous section. Not a feeling that it worked. A number, attached to a procedure version, that I can compare against next week.
 
 ## What's still open
 
