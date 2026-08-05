@@ -64,6 +64,10 @@ One related design choice, and it's a position not everyone will share. In the a
 
 The model informs. The procedure governs. If your UI puts the AI's conclusion at the top and buries the standard, you have quietly told your analysts which one is authoritative.
 
+I think ordering is an authority claim, and that it is the cheapest governance decision available to anyone building one of these. Nobody signs off on it. It never appears in a design review. But an analyst who reads a verdict first has already anchored, and everything after it gets read as support for a conclusion they now hold. Reverse the order and the same two artifacts do different work: the standard sets the question, and the model's answer arrives as one input to it.
+
+It also changes what you can say afterwards. "The analyst applied the approved procedure and considered the model's assessment" is a defensible sentence. "The analyst reviewed the model's verdict and the procedure was available" is a different sentence about the same screen, and it is the one you end up saying if the layout was never a decision.
+
 ## What that unlocked: it stopped being a registry tool
 
 Once the standard was a document instead of a prompt, the pipeline stopped caring what it was triaging. The query defines *what* it looks at. The procedure defines *how* that domain gets analyzed. Same skeleton either way.
